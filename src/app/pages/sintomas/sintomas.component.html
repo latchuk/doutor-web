@@ -1,0 +1,46 @@
+<div class="container">
+
+    <mat-spinner strokeWidth="4" diameter="42" *ngIf="!sintomas"></mat-spinner>
+
+    <mat-card *ngIf="sintomas">
+        <mat-card-header>
+            <div mat-card-avatar class="avatar" fxLayout fxLayoutAlign="center center">
+                <fa-icon size="2x" [icon]="categoria.icone">
+                </fa-icon>
+            </div>
+            <mat-card-title>Qual é o principal sintoma?</mat-card-title>
+            <mat-card-subtitle>{{ categoria.titulo }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <mat-action-list *ngIf="sintomas.length > 0">
+                <button mat-list-item *ngFor="let sintoma of sintomas" [disabled]="!sintoma.disponivel"
+                    (click)="sintomaSelecionado(sintoma)">
+                    {{ sintoma.titulo }}
+                </button>
+            </mat-action-list>
+
+            <div *ngIf="sintomas.length == 0" class="lista-vazia-container" fxLayout="row"
+                fxLayoutAlign="center center">
+                <fa-icon size="lg" [icon]="iconeListaVazia">
+                </fa-icon>
+                <p>
+                    Não existem sintomas cadastrados para essa categoria
+                </p>
+                <fa-icon size="lg" [icon]="iconeListaVazia">
+                </fa-icon>
+            </div>
+
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-button color="primary" (click)="escolherOutroCategoria()" class="uppercase">
+                <fa-icon class="margin-direita-8" size="lg" [icon]="iconeVoltar">
+                </fa-icon>
+                Escolher outra categoria
+            </button>
+        </mat-card-actions>
+
+    </mat-card>
+
+</div>

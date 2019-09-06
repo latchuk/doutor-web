@@ -1,1 +1,137 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "~@angular/material/theming";
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$doutor-web-primary: mat-palette($mat-indigo);
+$doutor-web-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$doutor-web-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$doutor-web-theme: mat-light-theme($doutor-web-primary, $doutor-web-accent, $doutor-web-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($doutor-web-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+$primary: map-get($doutor-web-theme, primary);
+$foreground: map-get($doutor-web-theme, foreground);
+
+html,
+body {
+    height: 100%;
+    background-color: #fafafa;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container {
+    padding: 16px;
+
+    mat-card {
+        max-width: 960px;
+        margin: auto;
+
+        .avatar {
+            background-color: mat-color($primary);
+            color: mat-color($primary, default-contrast);
+
+            span {
+                font-size: 32px;
+                font-weight: 500;
+                color: white;
+            }
+        }
+    }
+
+    mat-spinner {
+        margin: auto;
+        margin-top: 32px;
+    }
+
+    .uppercase {
+        text-transform: uppercase;
+    }
+
+    .conteudo {
+        max-width: 960px;
+        margin: auto;
+    }
+}
+
+.imagem-doutor-web {
+    max-height: 384px;
+    object-fit: cover;
+}
+
+.mat-icon-list-item {
+    margin-right: 16px;
+}
+
+.titulo-sem-margin {
+    margin: 0 !important;
+}
+
+.margin-bottom-8 {
+    margin-bottom: 8px;
+}
+
+.margin-lateral-4 {
+    margin: 0 4px;
+}
+
+.margin-esquerda-8 {
+    margin-left: 8px;
+}
+
+.margin-direita-8 {
+    margin-right: 8px;
+}
+
+.texto-justificado {
+    text-align: justify;
+}
+
+.footer {
+    background-color: mat-color($primary);
+    color: mat-color($primary, default-contrast);
+    padding: 16px 0;
+}
+
+.color-primary {
+    color: mat-color($primary);
+}
+
+.fa-icon-content {
+    width: 16px;
+    margin-right: 16px;
+}
+
+.lista-vazia-container {
+    color: mat-color($foreground, secondary-text);
+    padding-top: 32px;
+
+    p {
+        padding: 0 16px;
+    }
+}
+
+.mat-list-item:disabled {
+    opacity: 0.54;
+    cursor: not-allowed;
+}

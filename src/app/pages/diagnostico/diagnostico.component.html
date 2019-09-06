@@ -1,0 +1,36 @@
+<div class="container">
+
+    <mat-spinner strokeWidth="4" diameter="42" *ngIf="!categoria"></mat-spinner>
+
+    <mat-card *ngIf="categoria">
+        <mat-card-header>
+            <div mat-card-avatar class="avatar" fxLayout fxLayoutAlign="center center">
+                <fa-icon size="2x" [icon]="categoria.icone">
+                </fa-icon>
+            </div>
+            <mat-card-title>Diagnóstico</mat-card-title>
+            <mat-card-subtitle>{{ categoria.titulo }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <p>
+                <strong>{{ diagnostico.titulo }}</strong>
+                {{ diagnostico.descricao }}
+            </p>
+            <p *ngIf="diagnostico.autoAjuda">
+                <strong>Auto-ajuda: </strong>
+                {{ diagnostico.autoAjuda }}
+            </p>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-button color="primary" (click)="escolherOutroSintoma()" class="uppercase">
+                <fa-icon class="margin-direita-8" size="lg" [icon]="iconeVoltar">
+                </fa-icon>
+                Escolher um outro sintoma
+            </button>
+        </mat-card-actions>
+
+    </mat-card>
+
+</div>
