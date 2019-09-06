@@ -24,10 +24,18 @@
         </mat-card-content>
 
         <mat-card-actions>
-            <button mat-button color="primary" (click)="escolherOutroSintoma()" class="uppercase">
+            <button mat-button color="primary" *ngIf="!proximoSintoma" (click)="escolherOutroSintoma()"
+                class="uppercase">
                 <fa-icon class="margin-direita-8" size="lg" [icon]="iconeVoltar">
                 </fa-icon>
                 Escolher um outro sintoma
+            </button>
+            <button mat-button color="primary" *ngIf="proximoSintoma" (click)="irParaProximoSintoma()"
+                class="uppercase">
+                Ir para o sintoma
+                <fa-icon class="margin-direita-8 margin-esquerda-8" size="lg" [icon]="iconeProximoSintoma">
+                </fa-icon>
+                {{ proximoSintoma.titulo }}
             </button>
         </mat-card-actions>
 

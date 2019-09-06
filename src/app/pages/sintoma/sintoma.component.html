@@ -16,10 +16,22 @@
             <p class="texto-justificado">
                 {{ sintoma.descricao }}
             </p>
+
+            <div *ngIf="!sintoma.disponivel" class="lista-vazia-container" fxLayout="row" fxLayoutAlign="center center">
+                <fa-icon size="lg" [icon]="iconeListaVazia">
+                </fa-icon>
+                <p>
+                    Desculpe, mas este sintoma ainda não está disponível
+                </p>
+                <fa-icon size="lg" [icon]="iconeListaVazia">
+                </fa-icon>
+            </div>
+
         </mat-card-content>
 
         <mat-card-actions align="end">
-            <button mat-button color="primary" (click)="iniciarDiagnostico()" class="uppercase">
+            <button mat-button color="primary" *ngIf="sintoma.disponivel" (click)="iniciarDiagnostico()"
+                class="uppercase">
                 Iniciar diagnóstico
                 <fa-icon class="margin-esquerda-8" size="lg" [icon]="iconePlay">
                 </fa-icon>

@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SintomasService } from 'src/app/services/sintomas.service';
 import { Categoria } from 'src/app/models/categoria.model';
 import { CategoriasService } from 'src/app/services/categorias.service';
-import { IconDefinition, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition, faPlay, faNotesMedical } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
     selector: 'app-sintoma',
@@ -17,6 +17,7 @@ export class SintomaComponent implements OnInit {
     sintoma: Sintoma;
     categoria: Categoria;
     iconePlay: IconDefinition = faPlay;
+    iconeListaVazia: IconDefinition = faNotesMedical;
 
     constructor(
         private route: ActivatedRoute,

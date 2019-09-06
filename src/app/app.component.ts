@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import { CadastrosService } from './services/cadastros.service';
+import { CadastrosService } from './services/cadastros.service';
 import { environment } from 'src/environments/environment';
 import { IconDefinition, faStethoscope } from '@fortawesome/free-solid-svg-icons';
 
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 
     constructor(
         private router: Router,
-        // private cadastrosService: CadastrosService,
+        private cadastrosService: CadastrosService,
     ) { }
 
     ngOnInit(): void {
@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
 
     async cadastrar() {
         if (environment.production === false) {
-            // await this.cadastrosService.cadastrarTudo();
+            await this.cadastrosService.cadastrarTudo();
             alert('Dados cadastrados com sucesso!');
         }
     }
