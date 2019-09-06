@@ -1,56 +1,70 @@
-<div class="container">
+<div fxLayout="column" fxFill>
 
-    <mat-card>
+    <div class="container">
 
-        <img mat-card-image class="imagem-doutor-web"
-            src="https://firebasestorage.googleapis.com/v0/b/doutor-web.appspot.com/o/doutor-web.jpg?alt=media&token=19a1b33a-9c20-4d0f-9210-26e19836f655">
+        <mat-spinner strokeWidth="4" diameter="42" *ngIf="!categorias"></mat-spinner>
 
-        <div class="margin-bottom-8 color-primary" fxLayout="row" fxLayoutAlign="start center">
-            <mat-card-title class="titulo-sem-margin"> Doutor </mat-card-title>
-            <mat-icon class="margin-lateral-4" color="primary">local_hospital</mat-icon>
-            <mat-card-title class="titulo-sem-margin"> web </mat-card-title>
-        </div>
+        <mat-card *ngIf="categorias">
+
+            <img mat-card-image class="imagem-doutor-web"
+                src="https://firebasestorage.googleapis.com/v0/b/doutor-web.appspot.com/o/doutor-web.jpg?alt=media&token=19a1b33a-9c20-4d0f-9210-26e19836f655">
+
+            <div class="margin-bottom-8 color-primary" fxLayout="row" fxLayoutAlign="start center">
+                <mat-card-title class="titulo-sem-margin"> Doutor </mat-card-title>
+                <div class="color-primary margin-lateral-4">
+                    <fa-icon size="lg" [icon]="iconeDoutorWeb">
+                    </fa-icon>
+                </div>
+                <mat-card-title class="titulo-sem-margin"> web </mat-card-title>
+            </div>
 
 
-        <mat-card-subtitle>
-            Saúde, informação e diagnósticos online. Cuidado para toda a família ao seu alcance 24 horas
-            por dia.
-        </mat-card-subtitle>
+            <mat-card-subtitle>
+                Saúde, informação e diagnósticos online. Cuidado para toda a família ao seu alcance 24 horas
+                por dia.
+            </mat-card-subtitle>
 
-        <mat-card-content class="texto-justificado">
-            <p>
-                O doutor web é um projeto de iniciativa livre que tem como objetivo levar informações sobre saúde e bem
-                estar a todos os lugares, ajudando à todos encontrar informações confiáveis sobre sintomas e doenças.
-                Todo conteúdo encontrado aqui é informativo e não substitui uma consulta médica, caso não esteja se
-                sentindo bem, procure um médico ou posto de saúde.
-            </p>
-            <mat-divider></mat-divider>
-            <br />
-            <p>
-                Para iniciar um diagnóstico, escolha uma das categorias abaixo:
-            </p>
+            <mat-card-content class="texto-justificado">
+                <p>
+                    O doutor web é um projeto de iniciativa livre que tem como objetivo levar informações sobre
+                    saúde e
+                    bem
+                    estar a todos os lugares, ajudando à todos encontrar informações confiáveis sobre sintomas e
+                    doenças.
+                    Todo conteúdo encontrado aqui é informativo e não substitui uma consulta médica, caso não esteja
+                    se
+                    sentindo bem, procure um médico ou posto de saúde.
+                </p>
+                <mat-divider></mat-divider>
+                <br />
+                <p>
+                    Para iniciar um diagnóstico, escolha uma das categorias abaixo:
+                </p>
 
-            <mat-spinner strokeWidth="4" diameter="42" *ngIf="!categorias"></mat-spinner>
+                <mat-action-list *ngIf="categorias">
+                    <button mat-list-item *ngFor="let categoria of categorias"
+                        (click)="categoriaSelecionada(categoria)">
+                        <div class="color-primary fa-icon-content" fxLayout="row" fxLayoutAlign="center center">
+                            <fa-icon size="lg" [icon]="categoria.icone">
+                            </fa-icon>
+                        </div>
+                        {{ categoria.titulo }}
+                    </button>
+                </mat-action-list>
 
-            <mat-action-list *ngIf="categorias">
-                <button mat-list-item *ngFor="let categoria of categorias" (click)="categoriaSelecionada(categoria)">
-                    <div class="color-primary fa-icon-content" fxLayout="row" fxLayoutAlign="center center">
-                        <fa-icon size="lg" [icon]="categoria.icone">
-                        </fa-icon>
-                    </div>
-                    {{ categoria.titulo }}
-                </button>
-            </mat-action-list>
+            </mat-card-content>
 
-        </mat-card-content>
+        </mat-card>
 
-    </mat-card>
-
-</div>
-
-<div class="footer" *ngIf="categorias">
-    <div class="container" fxLayout="column" fxLayoutAlign="center center">
-        <small>Powered by © Marcos Latchuk</small>
-        <small>Trabalho de conclusão do pós em desenvolvimento web - Faculdade Guairacá - Guarapuava 2019</small>
     </div>
+
+    <div fxFlex></div>
+
+    <div class="footer">
+        <div class="container" fxLayout="column" fxLayoutAlign="center center">
+            <small>Powered by © Marcos Latchuk</small>
+            <small>Trabalho de conclusão do pós em desenvolvimento web - Faculdade Guairacá - Guarapuava 2019</small>
+        </div>
+    </div>
+
 </div>

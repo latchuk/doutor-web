@@ -9,6 +9,7 @@ import {
     faMars,
     faVenus,
     faStarOfLife,
+    faBabyCarriage,
     IconDefinition
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -88,6 +89,9 @@ export class CategoriasService {
 
             case 'c6':
                 return faVenus;
+
+            case 'c7':
+                return faBabyCarriage;
 
             default:
                 return faStarOfLife;

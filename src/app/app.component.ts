@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CadastrosService } from './services/cadastros.service';
+// import { CadastrosService } from './services/cadastros.service';
 import { environment } from 'src/environments/environment';
+import { IconDefinition, faStethoscope } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
     selector: 'app-root',
@@ -11,10 +13,11 @@ import { environment } from 'src/environments/environment';
 export class AppComponent implements OnInit {
 
     debug: boolean;
+    iconeDoutorWeb: IconDefinition = faStethoscope;
 
     constructor(
         private router: Router,
-        private cadastrosService: CadastrosService,
+        // private cadastrosService: CadastrosService,
     ) { }
 
     ngOnInit(): void {
@@ -27,7 +30,7 @@ export class AppComponent implements OnInit {
 
     async cadastrar() {
         if (environment.production === false) {
-            await this.cadastrosService.cadastrarTudo();
+            // await this.cadastrosService.cadastrarTudo();
             alert('Dados cadastrados com sucesso!');
         }
     }

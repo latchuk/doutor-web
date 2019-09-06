@@ -1,11 +1,20 @@
-<mat-toolbar color="primary">
-    <button mat-button class="toolbar-button" (click)="navegarParaHome()">
-        <span>Doutor </span>
-        <mat-icon>local_hospital</mat-icon>
-        <span> web</span>
-    </button>
-    <button mat-button *ngIf="debug" class="toolbar-button" (click)="cadastrar()">
-        <span>CADASTRAR</span>
-    </button>
-</mat-toolbar>
-<router-outlet></router-outlet>
+<div fxLayout="column" fxFill>
+    <div>
+        <mat-toolbar color="primary">
+            <button mat-button class="toolbar-button" (click)="navegarParaHome()">
+                <span>Doutor </span>
+                <fa-icon size="lg" [icon]="iconeDoutorWeb">
+                </fa-icon>
+                <span> web</span>
+            </button>
+            <button mat-button *ngIf="debug" class="toolbar-button" (click)="cadastrar()">
+                <span>CADASTRAR</span>
+            </button>
+        </mat-toolbar>
+    </div>
+
+    <div fxFlex>
+        <router-outlet></router-outlet>
+    </div>
+
+</div>

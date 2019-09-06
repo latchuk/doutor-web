@@ -38,6 +38,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         BrowserModule,
         AppRoutingModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFirestoreModule.enablePersistence(),
         AngularFirestoreModule,
         BrowserAnimationsModule,
         FlexLayoutModule,
