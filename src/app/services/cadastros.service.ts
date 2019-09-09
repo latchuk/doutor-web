@@ -139,11 +139,11 @@ export class CadastrosService {
             {
                 id: 's002_c1',
                 idCategoria: 'c1',
-                idPergunta: '',
+                idPergunta: 'p01_s002',
                 titulo: 'Acordando durante a noite',
                 // tslint:disable-next-line: max-line-length
-                descricao: '',
-                disponivel: false
+                descricao: 'A maioria dos bebês acorda para mamar regularmente ao longo do dia e da noite nos primeiros meses de vida. Isso é normal, e não adianta forçar uma rotina mais conveniente com bebês dessa idade. Só consulte esse sintoma se você acha que seu bebê acorda com maior frequencia do que o normal, se tem dificuldades em pô-lo na cama à noite ou se ele antes dormia bem e agora acorda durante a noite.',
+                disponivel: true
             },
 
             {
@@ -1885,7 +1885,7 @@ export class CadastrosService {
                         texto: 'Não',
                         ordem: 2,
                         idDiagnostico: null,
-                        idProximaPergunta: 'p03_s002'
+                        idProximaPergunta: 'p05_s002'
                     }
                 ]
             },
