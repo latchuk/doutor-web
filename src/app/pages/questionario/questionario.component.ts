@@ -35,6 +35,7 @@ export class QuestionarioComponent implements OnInit {
         this.sintoma = await this.sintomasService.get(this.idSintoma);
         this.pergunta = await this.perguntasService.get(this.sintoma.idPergunta);
         this.categoria = await this.categoriasService.get(this.sintoma.idCategoria);
+
     }
 
     async respondeu(resposta: Resposta) {
